@@ -50,7 +50,7 @@ export const Hangman = () => {
             <p className='Hangman-word'>{mainState.show ? guessedWord() : mainState.answer}</p>
             {winState() ? <h3>You Win!</h3> : <h3>{mainState.show ? `Number wrong: ${mainState.nWrong}.` : "You lose!"}</h3>}
             <button className="Restart-btn" onClick={() => refreshPage()}>Restart</button>
-            {mainState.show && <AlphaButtons handleGuess={handleGuess} disable={mainState.guessed} />}
+            {winState() ? null : (mainState.show && <AlphaButtons handleGuess={handleGuess} disable={mainState.guessed} />)}
 
         </div>
     )
